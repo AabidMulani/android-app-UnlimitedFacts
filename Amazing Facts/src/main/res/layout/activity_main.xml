@@ -1,16 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.probytemedia.amazingfacts.MainActivity">
+    android:id="@+id/main_layout"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/toggle_layout"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="1px">
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="48dp"
+            android:id="@+id/quotesBtn"
+            android:background="@drawable/apptheme_tab_indicator_holo"
+            android:textColor="@color/theme_color"
+            android:checked="true"
+            android:textSize="18sp"
+            android:textOn="Quotes"
+            android:textOff="Quotes"
+            android:layout_marginRight="1px"
+            android:layout_gravity="bottom" />
+
+        <ToggleButton
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="48dp"
+            android:textColor="@color/theme_color"
+            android:textOn="Favorites"
+            android:textSize="18sp"
+            android:background="@drawable/apptheme_tab_indicator_holo"
+            android:textOff="Favorites"
+            android:checked="false"
+            android:layout_marginLeft="1px"
+            android:id="@+id/favoriteBtn"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/am_fragment_holder"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/adView1"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/toggle_layout">
+
+    </RelativeLayout>
 
     <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="1dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Ads Here"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/adView1"
+        android:background="#404040"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <!--<com.google.android.gms.ads.AdView-->
+        <!--xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+        <!--android:id="@+id/adView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--ads:adUnitId="a1535bbd701109a"-->
+        <!--ads:adSize="SMART_BANNER"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentLeft="true" />-->
 
 </RelativeLayout>
