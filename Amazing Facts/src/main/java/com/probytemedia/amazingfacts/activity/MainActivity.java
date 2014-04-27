@@ -14,20 +14,23 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
-import com.probytemedia.amazingfacts.R;
 import com.probytemedia.amazingfacts.fragment.FavoritesListFragment;
 import com.probytemedia.amazingfacts.fragment.MainFragment;
 import com.probytemedia.amazingfacts.models.FavModel;
 import com.probytemedia.amazingfacts.utils.AppConstants;
 import com.probytemedia.amazingfacts.utils.AppRater;
+import com.probytemedia.unlimitedfacts.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +54,7 @@ public class MainActivity extends FragmentActivity {
     @InjectView(R.id.main_layout)
     RelativeLayout holderLayout;
 
-    private static final String AD_UNIT_ID = "";
+    private static final String AD_UNIT_ID = "a1535d298e8d00f";
     private AdView adView;
     private InterstitialAd interstitialAd;
     private boolean showInterstitial = false;
@@ -67,6 +70,7 @@ public class MainActivity extends FragmentActivity {
         selectedTab = -1;
         selectedTheme = prefs.getInt(THEME_COLOR, 1);
         setContentView(R.layout.activity_main);
+        Log.e("Sss","Ss");
         ButterKnife.inject(this);
         List<FavModel> allFavoriteList = FavModel.listAll(FavModel.class);
         if (allFavoriteList.size() == 0) {
@@ -76,54 +80,54 @@ public class MainActivity extends FragmentActivity {
             updateFragment(selectedTheme);
         }
         AppRater.app_launched(MainActivity.this);
-//        adView = (AdView) findViewById(R.id.adView1);
-//        adView.setVisibility(View.GONE);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        adView.loadAd(adRequest);
-//        adView.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdFailedToLoad(int errorCode) {
-//                super.onAdFailedToLoad(errorCode);
-//                adView.setVisibility(View.GONE);
-//            }
-//
-//            @Override
-//            public void onAdLoaded() {
-//                super.onAdLoaded();
-//                adView.setVisibility(View.VISIBLE);
-//            }
-//        });
+        adView = (AdView) findViewById(R.id.adView1);
+        adView.setVisibility(View.GONE);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                super.onAdFailedToLoad(errorCode);
+                adView.setVisibility(View.GONE);
+            }
 
-//
-//        interstitialAd = new InterstitialAd(this);
-//        interstitialAd.setAdUnitId(AD_UNIT_ID);
-//
-//        AdRequest adRequest1 = new AdRequest.Builder()
-//                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-//                .addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE")
-//                .build();
-//
-//        // Load the interstitial ad.
-//        interstitialAd.loadAd(adRequest1);
-//
-//        // Set the AdListener.
-//        interstitialAd.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdLoaded() {
-//                showInterstitial = true;
-//            }
-//
-//            @Override
-//            public void onAdFailedToLoad(int errorCode) {
-//                showInterstitial = false;
-//            }
-//
-//            @Override
-//            public void onAdClosed() {
-//                super.onAdClosed();
-//                finish();
-//            }
-//        });
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(AD_UNIT_ID);
+
+        AdRequest adRequest1 = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("INSERT_YOUR_HASHED_DEVICE_ID_HERE")
+                .build();
+
+        // Load the interstitial ad.
+        interstitialAd.loadAd(adRequest1);
+
+        // Set the AdListener.
+        interstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                showInterstitial = true;
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                showInterstitial = false;
+            }
+
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                finish();
+            }
+        });
 
     }
 
@@ -141,7 +145,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void updateFragment(int type) {
-        mainTextColor = type == 0 ? Color.parseColor("##FFD810") : Color.parseColor("#810541");
+        mainTextColor = type == 0 ? Color.parseColor("#FFD810") : Color.parseColor("#810541");
 //        mainTextColor=Color.parseColor("##FFD810");
         if (Build.VERSION.SDK_INT >= 16) {
             holderLayout.setBackground(new ColorDrawable(type == 0 ? Color.BLACK : Color.WHITE));

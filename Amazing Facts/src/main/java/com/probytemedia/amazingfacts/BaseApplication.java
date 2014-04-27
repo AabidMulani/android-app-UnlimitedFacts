@@ -1,5 +1,6 @@
 package com.probytemedia.amazingfacts;
 
+import com.bugsense.trace.BugSenseHandler;
 import com.orm.SugarApp;
 import com.probytemedia.amazingfacts.activity.MainActivity;
 
@@ -11,7 +12,7 @@ public class BaseApplication extends SugarApp {
     @Override
     public void onCreate() {
         super.onCreate();
-//        BugSenseHandler.initAndStartSession(getApplicationContext(), "634bac96");
+        BugSenseHandler.initAndStartSession(getApplicationContext(), "a281e396");
     }
 
     @Override

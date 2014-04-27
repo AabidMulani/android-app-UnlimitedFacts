@@ -12,7 +12,7 @@
         android:id="@+id/scrollView"
         android:fillViewport="true"
         android:layout_above="@+id/share_button"
-        android:layout_below="@+id/number_quote">
+        android:layout_below="@+id/goto_button">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,20 +29,20 @@
                 android:id="@+id/textView"
                 android:textColor="@color/theme_color" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fav_button"
-                android:src="@drawable/selector_fav_unfav"
-                android:background="@drawable/apptheme_btn_default_holo_light"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
-
         </RelativeLayout>
 
     </ScrollView>
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:id="@+id/goto_button"
+        android:text="Goto"
+        android:textColor="@color/white"
+        android:background="@drawable/apptheme_btn_default_holo_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
 
     <com.probytemedia.amazingfacts.utils.ColoredTextView
         android:layout_width="match_parent"
@@ -56,8 +56,18 @@
         android:gravity="center"
         android:id="@+id/number_quote"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/scrollView"
+        android:layout_toRightOf="@+id/goto_button"
+        android:layout_toLeftOf="@+id/fav_button" />
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/fav_button"
+        android:src="@drawable/selector_fav_unfav"
+        android:background="@drawable/apptheme_btn_default_holo_light"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
 
     <Button
         android:layout_width="match_parent"

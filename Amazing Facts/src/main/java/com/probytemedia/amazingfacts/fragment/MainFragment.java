@@ -1,6 +1,8 @@
 package com.probytemedia.amazingfacts.fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,13 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.probytemedia.amazingfacts.R;
 import com.probytemedia.amazingfacts.activity.MainActivity;
 import com.probytemedia.amazingfacts.models.FavModel;
 import com.probytemedia.amazingfacts.utils.AppConstants;
+import com.probytemedia.unlimitedfacts.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +98,7 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
             final TextView quoteTxt = (TextView) view.findViewById(R.id.textView);
             final TextView quoteNumber = (TextView) view.findViewById(R.id.number_quote);
             final Button shareButton = (Button) view.findViewById(R.id.share_button);
+            final Button gotoBtn = (Button) view.findViewById(R.id.goto_button);
             final ImageButton favButton = (ImageButton) view.findViewById(R.id.fav_button);
             quoteTxt.setText(quoteList.get(position));
             if (AppConstants.favListDB.get(position).isFavorites()) {
@@ -130,6 +135,13 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
                 }
             });
 
+            gotoBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showGotoDialog();
+                }
+            });
+
             ((ViewPager) container).addView(view, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             return view;
         }
@@ -139,5 +151,50 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
             ((ViewPager) container).removeView((View) object);
         }
     }
+
+
+
+    private void showGotoDialog() {
+        LayoutInflater li = LayoutInflater.from(getActivity());
+        View promptsView = li.inflate(R.layout.goto_dialog, null);
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setView(promptsView);
+        alertDialogBuilder.setTitle("Enter Fact No:");
+        final EditText userInput = (EditText) promptsView.findViewById(R.id.gotoCount);
+        alertDialogBuilder
+                .setCancelable(false)
+                .setPositiveButton("Go..",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                if (userInput.getText().toString().length() != 0) {
+                                    try {
+                                        int count = Integer.parseInt(userInput.getText().toString());
+                                        if(count==0 ||count>500){
+                                            userInput.setError("Enter Count [1-500]");
+                                        }else{
+                                            Toast.makeText(getActivity(),"Fact No: "+count,Toast.LENGTH_LONG);
+                                            dialog.cancel();
+                                            pager.setCurrentItem(count-1);
+                                        }
+                                    }catch (Exception ex){
+                                        dialog.dismiss();
+                                    }
+                                } else {
+                                    userInput.setError("Enter Count [1-500]");
+                                }
+                            }
+                        }
+                )
+                .setNegativeButton("Cancel",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }
+                );
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
 
 }

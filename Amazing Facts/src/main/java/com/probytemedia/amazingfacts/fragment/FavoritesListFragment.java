@@ -16,7 +16,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.probytemedia.amazingfacts.R;
+import com.probytemedia.unlimitedfacts.R;
 import com.probytemedia.amazingfacts.models.FavModel;
 import com.probytemedia.amazingfacts.utils.AppConstants;
 

@@ -54,27 +54,27 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="1dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Ads Here"
-        android:textColor="@color/white"
-        android:gravity="center"
-        android:id="@+id/adView1"
-        android:background="#404040"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <!--<com.google.android.gms.ads.AdView-->
-        <!--xmlns:ads="http://schemas.android.com/apk/res-auto"-->
-        <!--android:id="@+id/adView1"-->
+    <!--<TextView-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--ads:adUnitId="a1535bbd701109a"-->
-        <!--ads:adSize="SMART_BANNER"-->
+        <!--android:layout_height="50dp"-->
+        <!--android:layout_margin="1dp"-->
+        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+        <!--android:text="Ads Here"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:gravity="center"-->
+        <!--android:id="@+id/adView1"-->
+        <!--android:background="#404040"-->
         <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_alignParentLeft="true" />-->
+        <!--android:layout_centerHorizontal="true" />-->
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adUnitId="a1535d28551a30e"
+        ads:adSize="SMART_BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" />
 
 </RelativeLayout>

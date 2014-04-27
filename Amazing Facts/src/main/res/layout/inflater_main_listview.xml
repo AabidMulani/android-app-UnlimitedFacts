@@ -19,8 +19,8 @@
 
 
             <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:id="@+id/fav_button"
                 android:src="@drawable/selector_fav_unfav"
                 android:background="@drawable/apptheme_btn_default_holo_light"
@@ -29,8 +29,8 @@
                 android:layout_alignEnd="@+id/textView" />
 
     <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/share_button"
         android:src="@drawable/share_icon"
         android:background="@drawable/apptheme_btn_default_holo_light"
