@@ -23,8 +23,8 @@
             android:textColor="@color/theme_color"
             android:checked="true"
             android:textSize="18sp"
-            android:textOn="Quotes"
-            android:textOff="Quotes"
+            android:textOn="Facts"
+            android:textOff="Facts"
             android:layout_marginRight="1px"
             android:layout_gravity="bottom" />
 
