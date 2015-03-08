@@ -36,9 +36,9 @@ android {
         }
         release {
             storeFile file('certificates/unlimitedFactsKey.jks')
-            storePassword 'gps123456'
+            storePassword 'facts123456'
             keyAlias 'Aabid'
-            keyPassword 'gps123456'
+            keyPassword 'facts123456'
         }
     }
 
