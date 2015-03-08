@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:BannerView="http://schemas.android.com/apk/lib/com.smaato.soma"
     android:layout_width="match_parent"
     android:id="@+id/main_layout"
     android:layout_height="match_parent">
@@ -48,33 +50,43 @@
         android:id="@+id/am_fragment_holder"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/adView1"
+        android:layout_above="@+id/startApp3DBanner"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/toggle_layout">
 
     </RelativeLayout>
 
     <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_margin="1dp"-->
-        <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
-        <!--android:text="Ads Here"-->
-        <!--android:textColor="@color/white"-->
-        <!--android:gravity="center"-->
-        <!--android:id="@+id/adView1"-->
-        <!--android:background="#404040"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true" />-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_margin="1dp"-->
+    <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+    <!--android:text="Ads Here"-->
+    <!--android:textColor="@color/white"-->
+    <!--android:gravity="center"-->
+    <!--android:id="@+id/adView1"-->
+    <!--android:background="#404040"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true" />-->
 
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        ads:adUnitId="a1535d28551a30e"
-        ads:adSize="SMART_BANNER"
+    <!--<com.google.android.gms.ads.AdView-->
+    <!--xmlns:ads="http://schemas.android.com/apk/res-auto"-->
+    <!--android:id="@+id/adView1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--ads:adUnitId="a1535d28551a30e"-->
+    <!--ads:adSize="SMART_BANNER"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_alignParentLeft="true" />-->
+
+
+    <com.startapp.android.publish.banner.banner3d.Banner3D
+        android:id="@+id/startApp3DBanner"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

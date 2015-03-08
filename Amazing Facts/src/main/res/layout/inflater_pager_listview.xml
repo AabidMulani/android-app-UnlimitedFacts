@@ -42,7 +42,7 @@
         android:textColor="@color/white"
         android:background="@drawable/apptheme_btn_default_holo_light"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true" />
 
     <com.probytemedia.amazingfacts.utils.ColoredTextView
         android:layout_width="match_parent"
@@ -71,15 +71,13 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:text="Share"
         android:textColor="@color/white"
         android:id="@+id/share_button"
         android:background="@drawable/apptheme_btn_default_holo_light"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" />
-
-
 
 
 </RelativeLayout>

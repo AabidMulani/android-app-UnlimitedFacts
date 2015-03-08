@@ -1,5 +1,6 @@
 package com.probytemedia.amazingfacts.models;
 
+
 import android.content.Context;
 
 import com.orm.SugarRecord;
@@ -7,7 +8,7 @@ import com.orm.SugarRecord;
 /**
  * Created by AABID on 19/4/14.
  */
-public class FavModel extends SugarRecord<FavModel>{
+public class FavModel extends SugarRecord<FavModel> {
 
     private int position;
     private boolean favorites;
